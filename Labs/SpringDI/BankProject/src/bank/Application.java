@@ -15,8 +15,9 @@ import bank.service.IAccountService;
 public class Application {
 	public static void main(String[] args) {
 		/*IAccountService accountService = new AccountService();*/
-		ApplicationContext context = new ClassPathXmlApplicationContext("springconfig.xml");       
-		IAccountService  accountService = context.getBean("accountService", IAccountService .class);
+		ApplicationContext context = new ClassPathXmlApplicationContext("springconfig.xml");      
+		IAccountService accountService = (IAccountService)context.getBean("accountService");
+
 		// create 2 accounts;
 		accountService.createAccount(1263862, "Frank Brown");
 		accountService.createAccount(4253892, "John Doe");
