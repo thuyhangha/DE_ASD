@@ -10,11 +10,13 @@ import bank.domain.AccountEntry;
 import bank.domain.Customer;
 import bank.service.IAccountService;
 
+
+
 public class Application {
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("springconfig.xml");      
-		IAccountService accountService = (IAccountService)context.getBean("accountService");
-
+		/*IAccountService accountService = new AccountService();*/
+		ApplicationContext context = new ClassPathXmlApplicationContext("springconfig.xml");       
+		IAccountService  accountService = context.getBean("accountService", IAccountService .class);
 		// create 2 accounts;
 		accountService.createAccount(1263862, "Frank Brown");
 		accountService.createAccount(4253892, "John Doe");

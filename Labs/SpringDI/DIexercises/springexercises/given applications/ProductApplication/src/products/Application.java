@@ -8,6 +8,7 @@ public class Application {
 		/* IProductService productService = new ProductService(); */
 		ApplicationContext context = new ClassPathXmlApplicationContext("springconfig.xml");
 		IProductService productService = context.getBean("productService", IProductService.class);
+		IInventoryService inventoryService = context.getBean("InventoryService", IInventoryService.class);
 
 		Product product1 = productService.getProduct(423);
 		if (product1 != null) {

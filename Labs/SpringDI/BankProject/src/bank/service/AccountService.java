@@ -12,11 +12,8 @@ public class AccountService implements IAccountService {
 	private IAccountDAO accountDAO;
 
 	
-	public void setAccountDAO(IAccountDAO accountDAO) {
-		this.accountDAO = accountDAO;
-	}
-
 	public AccountService(){
+		accountDAO=new AccountDAO();
 	}
 
 	public Account createAccount(long accountNumber, String customerName) {
