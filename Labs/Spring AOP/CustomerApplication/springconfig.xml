@@ -11,11 +11,15 @@
      http://www.springframework.org/schema/aop 
      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-
+	<aop:aspectj-autoproxy />
 	<bean id="customerService" class="customers.CustomerService">
 		<property name="customerDAO" ref="customerDAO" />
 		<property name="emailSender" ref="emailSender" />
 	</bean>
 	<bean id="customerDAO"  class="customers.CustomerDAO" />
 	<bean id="emailSender"  class="customers.EmailSender" />
+	
+	<!-- AOP -->
+	<bean id="servicetimer" class="customers.aop.ServiceTimerAdvice"/>
+    <bean id="daologger" class="customers.aop.DaoLoggingAdvice"/>
 </beans>
